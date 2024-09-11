@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row" *ngIf="authService.isLoggedIn">
+    <div class="col-md-3">
+      <h5>我的基金<span class="view-all"><a routerLink="/fund-manage" class="fund-edit"></a></span></h5>
+      <div class="fund-add-guide" *ngIf="isNoFund">
+        <button routerLink="/fund-manage"></button>
+        <p>
+          <a routerLink="/fund-manage">暂无基金，立即添加</a>
+        </p>
+      </div>
+      <ul class="part-fund">
+        <li *ngFor="let item of funds" (click)="selectFund(item.FundCode,item.FundName)">
+          {{item.FundCode}} {{item.FundName}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <ff-blank-result *ngIf="isBlankResult"></ff-blank-result>
+      <div class="fund-brief">
+        <h4>
+          {{fundName}}({{fundCode}})
+          <span>
+            <a *ngFor="let item of timeSelection" (click)="selectTime(item.Id,item.Name)" [ngClass]="{'time-active': item.isSelected }">
+              {{item.Name}}
+            </a>
+          </span>
+        </h4>
+      </div>
+      <div class="position-relative">
+        <ff-loading *ngIf="isQueryPanelLoading"></ff-loading>
+        <fund-chart [ChartData]="chartData"></fund-chart>
+        <div class="rate-statistic"><span>{{selectedTime}}</span>中,该基金上涨日为<span>{{riseDays}}</span>天，下跌日为<span>{{fallDays}}</span>天：</div>
+        <rate-chart [ChartData]="chartData"></rate-chart>
+      </div>
+
+
+
+
+
+
+      <!--<button mat-raised-button color="warn" (click)="openDialog()">打开</button>
+      <button mat-raised-button color="warn" (click)="apiWithToken()">带token测试</button>-->
+
+    </div>
+  </div>
+  <div *ngIf="!authService.isLoggedIn">
+    <div class="login-guide">
+      <button mat-raised-button color="warn" routerLink="/login">登录</button>
+      <span>/</span>
+      <a routerLink="/register">注册</a>
+    </div>
+    <div class="popular-fund">
+      <h4>
+        <span>热门基金</span>
+      </h4>
+      <div class="row">
+        <div class="col-md-6" *ngFor="let item of popularFundsFirst">
+          <h5 class="text-center">
+            <span class="year-rate">+{{item.Rate}}%</span>
+            <span class="fund-name">{{item.Name}}</span></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" *ngFor="let item of popularFundsSecond">
+          <h5 class="text-center">
+            <span class="year-rate">+{{item.Rate}}%</span>
+            <span class="fund-name">{{item.Name}}</span></h5>
+        </div>
+      </div>
+      <h4>
+        <span>模拟投资</span>
+      </h4>
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <img src="../../../assets/image/example.png" height="254" width="386"/>
+          <p>招商中证白酒指数分级基金在2017.11.23至2018.01.16走势</p>
+        </div>
+        <div class="col-md-6">
+          <div class="mock-invest-guide">
+            <button mat-raised-button color="warn" routerLink="/mock-invest">真实历史数据模拟投资</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>

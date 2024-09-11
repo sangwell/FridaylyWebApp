@@ -1,0 +1,25 @@
+<div class="container">
+
+
+  <div class="center-layout">
+    <mat-form-field>
+      <input matInput placeholder="邮箱" [(ngModel)]="userModel.UserName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="密码" type="password" [(ngModel)]="userModel.Password">
+    </mat-form-field>
+    <div class="btn-layout">
+      <button mat-raised-button color="warn" (click)="login()">登录</button>
+      <p class="p-exchange"><a routerLink="/register">没有账号？立即注册</a></p>
+    </div>
+  </div>
+
+
+
+  <!--<h2>LOGIN</h2>
+  <p>{{message}}</p>
+  <p>
+    <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+    <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+  </p>-->
+</div>

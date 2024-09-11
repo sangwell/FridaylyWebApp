@@ -1,0 +1,32 @@
+<h2 mat-dialog-title class="text-center">热门基金推荐</h2>
+
+
+<mat-checkbox class="example-margin">全选</mat-checkbox>
+<a class="random-group">换一批</a>
+
+<div class="row">
+  <div class="col-md-6"><mat-checkbox class="example-margin">招商中证白酒指数分级(161725)</mat-checkbox></div>
+  <div class="col-md-6"><mat-checkbox class="example-margin">易方达消费行业(110022)</mat-checkbox></div>
+</div>
+<div class="row">
+  <div class="col-md-6"><mat-checkbox class="example-margin">国泰互联网+股票(001542)</mat-checkbox></div>
+  <div class="col-md-6"><mat-checkbox class="example-margin">中融新经济混合A(001387)</mat-checkbox></div>
+</div>
+<div class="row">
+  <div class="col-md-6"><mat-checkbox class="example-margin">交银丰享收益债券A(519746)</mat-checkbox></div>
+  <div class="col-md-6"><mat-checkbox class="example-margin">鹏华酒分级(160632)</mat-checkbox></div>
+</div>
+<div class="row">
+  <div class="col-md-6"><mat-checkbox class="example-margin">交银中证海外中国互联网指数(164906)</mat-checkbox></div>
+  <div class="col-md-6"><mat-checkbox class="example-margin">易方达亚洲精选(118001)</mat-checkbox></div>
+</div>
+<div class="row">
+  <div class="col-md-6"><mat-checkbox class="example-margin">汇添富盈稳保本混合(002959)</mat-checkbox></div>
+  <div class="col-md-6"><mat-checkbox class="example-margin">嘉实沪港深精选股票(001878)</mat-checkbox></div>
+</div>
+
+
+<div class="dialog-footer">
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">选好了</button>
+  <span (click)="closeDialog()">跳过</span>
+</div>

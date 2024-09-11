@@ -1,0 +1,14 @@
+<h3 mat-dialog-title>删除基金</h3>
+
+
+<div class="mat-dialog-body">
+  <p class="p-overflow">是否确认删除<span>{{data.FundCode}} {{data.FundName}}</span> ?</p>
+</div>
+
+
+
+
+<div class="mat-dialog-footer">
+  <span class="cancel-span" (click)="closeDialog()">取消</span>
+  <button mat-raised-button color="warn" (click)="confirm()">确认</button>
+</div>

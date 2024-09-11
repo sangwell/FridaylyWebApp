@@ -1,0 +1,65 @@
+<div class="container">
+  <span class="subtitle">上证指数</span>
+  <div class="row">
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput [matDatepicker]="startDate" placeholder="开始日期"
+               (dateChange)="setStartDate($event)" disabled>
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field>
+        <input matInput [matDatepicker]="endDate" placeholder="结束日期"
+               (dateChange)="setEndDate($event)" disabled>
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="warn" (click)="GetSHStockIndex()">查询</button>
+
+    <span class="time-select-layout">
+      <a *ngFor="let item of timeSelection" (click)="selectTime(item.Id,item.Name)" [ngClass]="{'time-active': item.isSelected }">
+              {{item.Name}}
+      </a>
+    </span>
+
+  </div>
+  <div class="position-relative">
+    <ff-loading *ngIf="isQueryPanelLoading"></ff-loading>
+    <stock-chart [ChartData]="chartData"></stock-chart>
+  </div>
+
+
+  <span class="subtitle">基金收益计算器</span>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <label>当前金额</label>
+      <div class="unit-yuan">
+        <input type="text" class="form-control" [(ngModel)]="fundToolSingleModel.CurrentMoney">
+      </div>
+      <label>日增长率</label>
+      <div class="unit-percent">
+        <input type="text" class="form-control" [(ngModel)]="fundToolSingleModel.DailyRate">
+      </div>
+      <label>定投金额</label>
+      <div class="unit-yuan">
+        <input type="text" class="form-control" [(ngModel)]="fundToolSingleModel.FixedInvestment">
+      </div>
+      <div class="row margin-top">
+        <div class="col-md-4">
+          <button mat-raised-button color="primary" (click)="ClearAll()">重置</button>
+          <!--<button class="btn btn-primary btn-block" (click)="ClearAll()">重置</button>-->
+        </div>
+        <div class="col-md-8">
+          <button mat-raised-button color="warn" class="btn-all" (click)="Calc()">开始计算</button>
+          <!--<button class="btn btn-warning btn-block" (click)="Calc()">开始计算</button>-->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+</div>

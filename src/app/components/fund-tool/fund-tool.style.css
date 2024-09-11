@@ -1,0 +1,21 @@
+.time-select-layout{
+  float: right;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.time-select-layout a{
+  padding: 1px 5px;
+  margin: 0 8px;
+  background: #a0a0a0;
+  border-radius: 4px;
+  color: #fff;
+}
+.time-active{
+  background: #ff5a5a!important;
+}
+.margin-top{
+  margin-top:20px;
+}
+.btn-all{
+  width:100%;
+}

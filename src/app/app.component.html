@@ -1,0 +1,60 @@
+<div class="page-menu">
+  <div class="container">
+    <div class="logo" routerLink="/home"></div>
+
+    <ul class="left-menu">
+      <li><a routerLink="/home" routerLinkActive="active">首页</a></li>
+      <li><a routerLink="/mock-invest" routerLinkActive="active">模拟投资</a></li>
+      <li><a routerLink="/fund-manage" routerLinkActive="active">基金管理</a></li>
+      <li><a routerLink="/fund-tool" routerLinkActive="active">基金工具</a></li>
+    </ul>
+    <ul class="right-menu" *ngIf="!authService.isLoggedIn">
+      <li><a routerLink="/login" routerLinkActive="active">登录</a></li>
+      <li><a routerLink="/register" routerLinkActive="active">注册</a></li>
+    </ul>
+    <div class="right-menu log-in" *ngIf="authService.isLoggedIn">
+      <img src="../assets/image/user.png" height="20" width="20"/>
+      <span (click)="logout()">退出</span>
+    </div>
+    <!--<div class="user-setting">
+      <ul>
+        <li>退出</li>
+      </ul>
+    </div>-->
+
+  </div>
+</div>
+
+
+
+<router-outlet></router-outlet>
+
+<div class="container margin-top footer-menu">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <img src="../assets/image/logo.png" height="30" width="100"/>
+      <p style="color: #6b6b6b;">基金投资助手</p>
+    </div>
+    <div class="col-md-3">
+      <h4>网站导航</h4>
+      <ul>
+        <li><a routerLink="/mock-invest">模拟投资</a></li>
+        <li><a routerLink="/fund-manage">基金管理</a></li>
+        <li><a routerLink="/fund-tool">基金工具</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <h4>快速链接</h4>
+      <ul>
+        <li><a href="http://fund.eastmoney.com/" target="_blank">天天基金网</a></li>
+        <li><a href="http://www.eastmoney.com/" target="_blank">东方财富网</a></li>
+        <li><a href="http://www.cfi.cn/" target="_blank">中财网</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <p class="site-info text-center">
+    <span>©2018&nbsp;Fridayly&nbsp;</span>
+    <a href="http://www.miitbeian.gov.cn" target="_blank">网站备案号：苏ICP备14049149号</a></p>
+</div>
+

@@ -1,0 +1,167 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <span class="subtitle no-margin-top">模拟结果</span>
+      <div class="position-relative">
+        <ff-blank-result *ngIf="isBlankResult"></ff-blank-result>
+        <div class="row">
+        <div class="col-md-3">
+          <div class="mock-result">
+            <label>基金名称:</label>
+            <span class="span-overflow">{{analyzeResultModel.FundName}}</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mock-result">
+            <label>时间范围:</label>
+            <span>{{analyzeResultModel.StartDate}}</span>至<span>{{analyzeResultModel.EndDate}}</span>({{analyzeResultModel.DateRange}}个交易日)
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="mock-result">
+            <label>基金增长率:</label>
+            <span>{{analyzeResultModel.Rate}}%</span>
+          </div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="mock-result">
+              <label>总投资金额:</label>
+              <span>{{analyzeResultModel.AllInvest}}</span>元
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mock-result">
+              <label>赎回金额:</label>
+              <span>{{analyzeResultModel.BackMoney}}</span>元
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mock-result">
+              <label>投资收益:</label>
+              <span>{{analyzeResultModel.Profit}}</span>元
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mock-result">
+              <label>投资回报率:</label>
+              <span>{{analyzeResultModel.ReturnRate}}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <span class="subtitle">投资收益</span>
+      <div class="position-relative">
+        <ff-blank-result *ngIf="isBlankResult"></ff-blank-result>
+      <fund-chart [ChartData]="chartData"></fund-chart>
+      </div>
+
+      <span class="subtitle">数据详情</span>
+      <div class="position-relative">
+        <ff-blank-result *ngIf="isBlankResult"></ff-blank-result>
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+        <thead>
+        <tr>
+          <th style="width: 20%">
+            <mfDefaultSorter by="Date">日期</mfDefaultSorter>
+          </th>
+          <th style="width: 15%">
+            <mfDefaultSorter by="StartMoney">当天开始金额(元)</mfDefaultSorter>
+          </th>
+          <th style="width: 15%">
+            <mfDefaultSorter by="Rate">日增长率</mfDefaultSorter>
+          </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="EndMoney">当天结束金额(元)</mfDefaultSorter>
+          </th>
+          <th style="width: 15%">
+            <mfDefaultSorter by="Profit">当天收益(元)</mfDefaultSorter>
+          </th>
+          <th style="width: 15%">
+            <mfDefaultSorter by="FixedInvest">是否定投</mfDefaultSorter>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of mf.data">
+          <td>{{item.Date}}</td>
+          <td>{{item.StartMoney}}</td>
+          <td>{{item.Rate}}%</td>
+          <td>{{item.EndMoney}}</td>
+          <td>{{item.Profit}}</td>
+          <td>{{item.FixedInvest}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="6">
+            <mfBootstrapPaginator [rowsOnPageSet]="[10,20,50]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+      </div>
+
+
+    </div>
+    <div class="col-md-3">
+      <div class="position-relative">
+        <ff-loading *ngIf="isQueryPanelLoading"></ff-loading>
+        <ff-login-guide *ngIf="!authService.isLoggedIn"></ff-login-guide>
+
+      <div class="query-layout">
+
+        <!--<label>基金</label>-->
+        <mat-form-field>
+          <mat-select placeholder="基金" (selectionChange)="selectFundOnChange($event)">
+            <mat-option *ngFor="let item of allFunds" [value]="item.id">
+              {{ item.text }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="startDate" placeholder="开始日期"
+                  (dateChange)="setStartDate($event)" disabled>
+          <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+          <mat-datepicker #startDate disabled="false"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="endDate" placeholder="结束日期"
+                 (dateChange)="setEndDate($event)" disabled>
+          <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+          <mat-datepicker #endDate disabled="false"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field">
+          <input matInput type="text" placeholder="初始金额" [(ngModel)]="analyzeFundModel.InitialMoney"/>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="投资方式" (selectionChange)="setInvestWay($event)">
+            <mat-option *ngFor="let item of allInvestWays" [value]="item.id">
+              {{ item.text }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field" *ngIf="analyzeFundModel.InvestWay==='2' || analyzeFundModel.InvestWay==='3'">
+          <input matInput type="text" placeholder="定投金额" [(ngModel)]="analyzeFundModel.FixMoney"/>
+        </mat-form-field>
+
+        <div class="btn-layout">
+          <button mat-raised-button color="warn" (click)="Run()">开始</button>
+        </div>
+
+
+
+
+
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

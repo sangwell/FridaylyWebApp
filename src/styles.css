@@ -1,0 +1,130 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{
+  font-weight: 200;
+  text-decoration: none;
+}
+a{
+  color:#000000;
+  cursor: pointer;
+}
+a:hover,a:active,a:visited,a:focus{
+  text-decoration: none;
+}
+.a-default{
+  color: #777;
+  cursor: pointer;
+}
+.a-default:hover,:focus{
+  text-decoration: none;
+  color: #000;
+}
+.active{
+  border-bottom: 2px solid red;
+  padding-bottom: 5px;
+}
+.border{
+  border:1px solid #ccc;
+}
+.btn-layout{
+  margin-top:8px;
+}
+.padding-15{
+  padding:15px;
+}
+.center-layout{
+  width: 300px;
+  padding:20px;
+  margin:180px auto 0 auto;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+}
+.error-span{
+  position: absolute;
+  margin-top: -18px;
+  font-size: 12px;
+  color: #f54337;
+}
+.p-exchange{
+  font-size: 12px;
+  text-align: right;
+  padding-top: 10px;
+}
+.position-relative{
+  position: relative;
+  clear: both;
+}
+.subtitle {
+  display: block;
+  margin: 20px 0 20px 0;
+  border-left: 7px solid #777;
+  padding-left: 6px;
+}
+.subtitle button {
+  background: #f54337;
+  border: none;
+  padding: 2px 10px;
+  color: #ffffff;
+  margin-left: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+.mat-dialog-footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  margin-left: -24px;
+  padding: 0 24px 24px 24px;
+  text-align: right;
+}
+.mat-dialog-footer .cancel-span{
+  padding: 20px;
+  cursor: pointer;
+}
+.mat-dialog-body{
+  width: 85%;
+  margin: 0 auto;
+}
+.p-overflow{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.p-overflow span{
+  font-weight: bold;
+  padding: 0 6px;
+  border-bottom: 1px solid #8b8b8b;
+}
+
+
+
+
+
+
+
+/*
+override
+ */
+.mat-form-field{
+  width: 100%!important;
+}
+.mat-form-field-disabled .mat-form-field-underline {
+  background-position: 0;
+  background-color:rgba(0,0,0,.42)!important;
+}
+.mat-form-field-disabled .mat-form-field-underline {
+  background-image:none!important;
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+}
+.mat-input-element:disabled {
+  color: #000!important;
+}
+.dialog-layout{
+  position: absolute!important;
+  top: 20%!important;
+}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #f54337;
+}

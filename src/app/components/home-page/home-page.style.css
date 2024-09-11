@@ -1,0 +1,108 @@
+.view-all{
+  float: right;
+}
+.fund-add-guide{
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+  font-size: 12px;
+}
+.fund-add-guide button{
+  width: 64px;
+  height: 64px;
+  border: none;
+  background-image: url(../../../assets/image/add.png);
+  background-repeat: no-repeat;
+  margin-bottom: 15px;
+}
+.part-fund{
+  padding: 0;
+}
+.part-fund li{
+  list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 5px 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+.fund-edit{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-top: -4px;
+  background-image: url("../../../assets/image/edit.png");
+}
+.fund-brief{
+
+}
+.fund-brief h4 span{
+  float: right;
+  font-size: 14px;
+}
+.fund-brief h4 span a{
+  padding: 1px 5px;
+  margin: 0 8px;
+  background: #a0a0a0;
+  border-radius: 4px;
+  color: #fff;
+}
+.time-active{
+  background: #ff5a5a!important;
+}
+.rate-statistic{
+  padding: 15px 0;
+}
+.rate-statistic span{
+  font-weight: bold;
+  color: #ff595a;
+}
+
+
+.login-guide{
+  padding: 140px 0;
+  text-align: center;
+}
+.mock-invest-guide{
+  padding: 115px 0;
+  text-align: center;
+}
+.login-guide span{
+  padding: 0 10px;
+}
+.popular-fund{
+
+}
+.popular-fund .row{
+  margin-bottom: 38px;
+}
+.popular-fund h4{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.popular-fund h4 span{
+  border-bottom: 2px solid #f54337;
+  padding-bottom: 6px;
+}
+.year-rate{
+  font-size: 30px;
+  color: #f54337;
+}
+.year-rate::after{
+  content: '近一年涨跌幅';
+  font-size: 14px;
+  position: absolute;
+  left: 26%;
+  top: 51px;
+  color: #868686;
+}
+.fund-name{
+  font-size: 22px;
+  padding-left: 14px;
+  font-weight: bold;
+
+}
+
+

@@ -1,0 +1,37 @@
+.mat-raised-button{
+  width:100%!important;
+}
+.query-layout{
+  border: 1px solid #ccc;
+  padding:15px;
+}
+.query-layout label{
+  display: block;
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 200;
+}
+.mock-result {
+  margin:5px 0;
+}
+.mock-result label {
+  padding-left: 13px;
+}
+.mock-result span {
+  font-size: 14px;
+  color: #f54337;
+  padding: 0 5px;
+}
+.span-overflow{
+  display: block;
+  width: 140px;
+  position: absolute;
+  top: 4px;
+  left: 92px;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

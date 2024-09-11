@@ -1,0 +1,15 @@
+.blank-result-layout{
+  z-index: 5000;
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+.blank-result-note{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -12px;
+  font-size: 18px;
+  text-align: center;
+}

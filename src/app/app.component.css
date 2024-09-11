@@ -1,0 +1,91 @@
+.page-menu{
+  height: 100px;
+  padding-top: 23px;
+}
+.logo{
+  width: 150px;
+  height: 45px;
+  display: block;
+  float: left;
+  background-image: url(../assets/image/logo.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.logo::after{
+  content: '基金投资助手';
+  position: absolute;
+  top: 41px;
+  width: 145px;
+  text-align: right;
+  letter-spacing: 7px;
+}
+.logo-footer{
+  width: 100px;
+  height: 30px;
+  display: block;
+  float: left;
+  background-image: url(../assets/image/logo.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.left-menu{
+  float: left;
+}
+.right-menu{
+  float: right;
+}
+.container{
+  position: relative;
+}
+.container ul{
+  padding-top: 17px;
+}
+.container ul li{
+  list-style: none;
+  float: left;
+  padding: 0 20px;
+}
+.container ul li a{
+  color: #000;
+}
+.log-in{
+  width: 65px;
+  height: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.log-in span{
+  padding-left: 10px;
+}
+.user-setting{
+  position: absolute;
+  width: 155px;
+  padding: 20px;
+  right: 0;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+  margin-top: 42px;
+}
+.user-setting ul{
+  padding:0;
+}
+.user-setting ul li{
+  margin: 5px 0;
+}
+.margin-top{
+  margin-top:100px;
+  margin-bottom:30px;
+}
+.footer-menu ul{
+  padding: 0;
+  margin: 0;
+}
+.footer-menu ul li{
+  float: none;
+  padding: 2px 0;
+}
+.site-info{
+  padding: 30px 0;
+}
+
+

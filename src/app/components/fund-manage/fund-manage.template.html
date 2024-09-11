@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div class="center-box-layout">
+    <ff-login-guide *ngIf="!authService.isLoggedIn"></ff-login-guide>
+    <div class="search-fund-layout">
+      <mat-form-field>
+      <input matInput placeholder="基金代码 / 名称" [(ngModel)]="fundSearchModel.FundCode" (keyup.enter)="searchFund()">
+        <button class="search-btn" (click)="searchFund()"></button>
+      </mat-form-field>
+    </div>
+    <!--<button mat-raised-button color="warn" (click)="searchFund()">测试</button>-->
+    <button mat-raised-button color="warn" (click)="openAddModal()">添加基金</button>
+    <span class="subtitle no-margin-top">我的所有基金</span>
+    <div class="my-fund-layout">
+      <ul>
+        <li *ngFor="let item of myFundList">
+          <label>{{item.FundCode}}</label>
+          <span>{{item.FundName}}</span>
+          <div>
+            <a class="a-default" (click)="openUpdateModal(item)">修改</a>
+            <a class="a-default" (click)="openDeleteModal(item)">删除</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="search-result" *ngIf="showSearchResult">
+  <div class="result-body">
+    <p *ngIf="searchResults.length===0" class="no-fund-found">没有找到该基金</p>
+    <ul>
+      <li *ngFor="let item of searchResults">
+        {{item.FundCode}} {{item.FundName}}
+
+        <a (click)="addFund(item)">添加</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="close-search-result">
+    <button (click)="closeSearchResult()"></button>
+  </div>
+</div>

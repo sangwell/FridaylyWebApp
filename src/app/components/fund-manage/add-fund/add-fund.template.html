@@ -1,0 +1,20 @@
+<h3 mat-dialog-title>添加基金</h3>
+
+
+<div class="mat-dialog-body">
+  <mat-form-field>
+    <input matInput placeholder="基金代码" [(ngModel)]="addFundModel.FundCode">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="基金名称" [(ngModel)]="addFundModel.FundName">
+  </mat-form-field>
+</div>
+
+
+
+
+<div class="mat-dialog-footer">
+  <span class="cancel-span" (click)="closeDialog()">取消</span>
+  <button mat-raised-button color="warn" (click)="confirm()">确认</button>
+</div>
+

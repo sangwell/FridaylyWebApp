@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div class="center-layout">
+    <mat-form-field>
+      <input matInput placeholder="邮箱" [(ngModel)]="userModel.UserName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="密码" type="password" [(ngModel)]="userModel.Password">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="确认密码" type="password" [(ngModel)]="confirmedPassword">
+    </mat-form-field>
+    <span *ngIf="passwordNotSame" class="error-span">两次输入密码不一致</span>
+    <div class="btn-layout">
+      <button mat-raised-button color="warn" (click)="register()">注册</button>
+      <p class="p-exchange"><a routerLink="/login">已有账号？立即登录</a></p>
+    </div>
+  </div>
+
+</div>
